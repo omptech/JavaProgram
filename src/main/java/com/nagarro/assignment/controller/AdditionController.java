@@ -14,12 +14,27 @@ public class AdditionController {
 	@RequestMapping(value="/add")
 	public ModelAndView addNumbers(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mv=new ModelAndView();
-		int a=Integer.parseInt(request.getParameter("t1"));
-		int b=Integer.parseInt(request.getParameter("t2"));
+		double a=Double.parseDouble(request.getParameter("t1"));
+		double b=Double.parseDouble(request.getParameter("t2"));
+		String op=request.getParameter("t3");
 		
-		int c=a+b;
+        double r=0.0;
+        switch(op.charAt(0)) {
+        case 'A':
+        	r=a+b;
+        	break;
+        case 'S':
+        	r=a-b;
+        	break;
+        case 'M':
+        	r=a*b;
+        	break;
+        case 'D':
+        	r=a/b;
+        }
+        	
 		
-		mv.addObject("result",c);
+		mv.addObject("result",r);
 		mv.setViewName("add-result");
 		return mv;
 	}

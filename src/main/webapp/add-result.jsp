@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-Result of addition: ${result};
+Result: ${result}
 </body>
 </html>
